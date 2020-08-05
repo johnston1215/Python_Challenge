@@ -19,17 +19,23 @@ with open(filePath) as csvFile:
         totalVotes = totalVotes + 1
 
     #if candidateList.index(current row candidate) < 1:
-        if candidateList.index(row) < 1:
+        #if candidateList.index(row) < 1:
         #append dict to list and set votes = 0
-            candidateList.append(candidate[row])
-            votes = 0
-
-    #increase vote for candidate + 1
+        #    candidateList.append(candidate[row])
+        #    votes = 0
+        #IF CANDIDATE IN CANDIDATE_DICT:
+        #   CANDIDATE_DICT[CANDIDATE] = CANDIDATE_DICT[CANDIDATE] + 1
+        #ELSE
+        #   CANDIDATE_DICT[CANDIDATE] = 1
 
     #exit for loop
 
     #create temp variables
+    #CANDIDATE_DICT["KHAN"] / TOTALVOTES
+    
     #For candidate in the list
+
+
     #   find one with most votes ( accumulator? )
     #   calc and print percentage
 

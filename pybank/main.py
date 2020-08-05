@@ -15,19 +15,21 @@ with open(filePath) as csvFile:
     PrevMonth = 0.00
     MonthlyChange = []
     monthName = []
+    net_change = 0
+    GreatestChange = [monthName, MonthlyChange]
     next(csvReader, None)
     for row in csvReader:
         TotalMonths = TotalMonths + 1
     #Get Current profit row[1]
         Total = Total + int(row[1])
     #Calculate the net + / - over the presented timeframe
-        net_change = int(row[1]) - PrevMonth
+        if TotalMonths != 1:
+            net_change = int(row[1]) - PrevMonth
         PrevMonth = int(row[1])
         MonthlyChange += [net_change]
         monthName += [row[0]]
 
     #Find greatest period increase in profits over period
-        GreatestChange = [monthName, MonthlyChange]
         if MonthlyChange > GreatestChange[1]:
             GreatestChange[1]=MonthlyChange
             GreatestChange[0]=monthName
@@ -45,13 +47,18 @@ with open(filePath) as csvFile:
     #Print results in terminal window
     #Write data to text file
     #PyBankAnalysis = os.path.join("analysis/" + "02-Homework_03-Python_Instructions_PyBank_Resources_budget_data.csv")
-    #with open(PyBankAnalysis.txt, "w") as out_file:
-    #    out_file.write(OutputString)
-    print("Financial Analysis")
-    print("------------------")
-    print(f"Total months: " + str(TotalMonths))
-    print (f"Total: $" + str(Total))
-    print(f"Average Change: $" + str(AvgChange))
+    
+    with open("PyBankAnalysis.txt", "w") as out_file:
+        out_file.write("OutputString")
+        print("Financial Analysis")
+        out_file.write("OutputString")
+        print("------------------")
+        out_file.write("OutputString")
+        print(f"Total months: " + str(TotalMonths))
+        out_file.write("OutputString")
+        print (f"Total: $" + str(Total))
+        out_file.write("OutputString")
+        print(f"Average Change: $" + str(AvgChange))
     #print(f"Greatest Increase in Profits: " + ??? + "$" + ???)
     #print(f"Greatest Decrease in Profits: " + ??? + "$" + ???)
 
