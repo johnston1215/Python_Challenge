@@ -8,8 +8,6 @@ filePath = os.path.join("resources/" + "02-Homework_03-Python_Instructions_PyBan
 #Read raw CSV file (with)
 with open(filePath) as csvFile:
     csvReader = csv.reader(csvFile)
-    #for row in csvReader:
-    #       print(row)
     #Count number of months included in data
     #Ditch (next) header row
     TotalMonths = 0
