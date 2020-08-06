@@ -11,27 +11,20 @@ with open(filePath) as csvFile:
 
     #Create variables - totalVotes int, candidateList = {candidate: votes}
     totalVotes = 0
-    candidateList = {"candidate":[], "votes":[]}
+    candidateList = []
+    candidatevotelist = []
     next(csvReader, None)
 
     #for each row
     for row in csvReader:
         totalVotes = totalVotes + 1
 
-    #if candidateList.index(current row candidate) < 1:
-        #if candidateList.index(row) < 1:
-        #append dict to list and set votes = 0
-        #    candidateList.append(candidate[row])
-        #    votes = 0
-        #IF CANDIDATE IN CANDIDATE_DICT:
-        #   CANDIDATE_DICT[CANDIDATE] = CANDIDATE_DICT[CANDIDATE] + 1
-        #ELSE
-        #   CANDIDATE_DICT[CANDIDATE] = 1
-
-    #exit for loop
-
+    if candidateList.index(row[2]) < 0:
+        candidateList.append(row[2])
+        candidatevotelist.append(1)
+            else:
+                candidatevotelist[candidateList.index(row[2])] += 1
     #create temp variables
-    #CANDIDATE_DICT["KHAN"] / TOTALVOTES
     
     #For candidate in the list
 
