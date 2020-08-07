@@ -34,13 +34,10 @@ with open(filePath) as csvFile:
 
     #Find greatest period increase in profits over period
     GrtInc = max(MonthlyChange)
-    for row in MonthlyChange:
-        if row == GrtInc:
-            print(GrtInc)       #DUMMY LINE
+    TempH = MonthlyChange.index(GrtInc)
     #Find greatest decrease in loss over period
     GrtDec = min(MonthlyChange)
-    if GrtDec == GreatestChange[1]:
-        GreatestChange[0] = DecMonth
+    TempL = MonthlyChange.index(GrtDec)
 
     #Calculate the average change over periods
     AvgChange = sum(MonthlyChange) / len(MonthlyChange)
@@ -52,8 +49,8 @@ with open(filePath) as csvFile:
         out_file.write(f"Total months: " + str(TotalMonths))
         out_file.write(f"\nTotal: $" + str(Total))
         out_file.write(f"\nAverage Change: $" + str(AvgChange))
-        out_file.write(f"\nGreatest Increase in Profits: " + str(IncMonth) + " $" + str(GrtInc))
-        out_file.write(f"\nGreatest Decrease in Profits: " + str(DecMonth) + " $" + str(GrtDec))
+        out_file.write(f"\nGreatest Increase in Profits: " + str(monthName[TempH]) + " $" + str(MonthlyChange[TempH]))
+        out_file.write(f"\nGreatest Decrease in Profits: " + str(monthName[TempL]) + " $" + str(MonthlyChange[TempL]))
 
     #Print results in terminal window    
     print("Financial Analysis")
@@ -61,7 +58,5 @@ with open(filePath) as csvFile:
     print(f"Total months: " + str(TotalMonths))
     print(f"Total: $" + str(Total))
     print(f"Average Change: $" + str(AvgChange))
-    print(f"Greatest Increase in Profits: " + str(IncMonth) + " $" + str(GrtInc))
-    print(f"Greatest Decrease in Profits: " + str(DecMonth) + " $" + str(GrtDec))
-
-    #print(GreatestChange)
+    print(f"Greatest Increase in Profits: " + str(monthName[TempH]) + " $" + str(MonthlyChange[TempH]))
+    print(f"Greatest Decrease in Profits: " + str(monthName[TempL]) + " $" + str(MonthlyChange[TempL]))
