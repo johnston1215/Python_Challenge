@@ -15,8 +15,9 @@ with open(filePath) as csvFile:
     PrevMonth = 0.00
     MonthlyChange = []
     monthName = []
-    net_change = 0
     GreatestChange = [monthName, MonthlyChange]
+    net_change = 0
+
     next(csvReader, None)
     for row in csvReader:
         TotalMonths = TotalMonths + 1
@@ -30,38 +31,25 @@ with open(filePath) as csvFile:
         monthName += [row[0]]
 
     #Find greatest period increase in profits over period
+        GrtInc = max(MonthlyChange)
+
+    #Find greatest decrease in loss over period
+        GrtDec = min(MonthlyChange)
         if MonthlyChange > GreatestChange[1]:
             GreatestChange[1]=MonthlyChange
             GreatestChange[0]=monthName
-
-    #Find greatest decrease in loss over period
-    #GreatestDecrease = 0
-    #for change in MonthlyChange:
-    #    if change < GreatestDecrease:
-    #        change = GreatestDecrease
-    #Not sure how to reference the month
-
     #Calculate the average change over periods
     AvgChange = sum(MonthlyChange) / len(MonthlyChange)
 
     #Print results in terminal window
     #Write data to text file
-    #PyBankAnalysis = os.path.join("analysis/" + "02-Homework_03-Python_Instructions_PyBank_Resources_budget_data.csv")
-    
-    with open("PyBankAnalysis.txt", "w") as out_file:
-        out_file.write("OutputString")
-        print("Financial Analysis")
-        out_file.write("OutputString")
-        print("------------------")
-        out_file.write("OutputString")
-        print(f"Total months: " + str(TotalMonths))
-        out_file.write("OutputString")
-        print (f"Total: $" + str(Total))
-        out_file.write("OutputString")
-        print(f"Average Change: $" + str(AvgChange))
-    #print(f"Greatest Increase in Profits: " + ??? + "$" + ???)
-    #print(f"Greatest Decrease in Profits: " + ??? + "$" + ???)
-
-    #print(monthName)
-    #print(MonthlyChange)
-    #print(GreatestChange)
+        
+    with open("Analysis/" + "PyBankAnalysis.txt", "w") as out_file:
+        out_file.write(f"Greatest Decrease in Profits: " + "str(?????)" + " $" + str(GrtDec))
+    print("Financial Analysis")
+    print("------------------")
+    print(f"Total months: " + str(TotalMonths))
+    print(f"Total: $" + str(Total))
+    print(f"Average Change: $" + str(AvgChange))
+    print(f"Greatest Increase in Profits: " + "str(?????)" + " $" + str(GrtInc))
+    print(f"Greatest Decrease in Profits: " + "str(?????)" + " $" + str(GrtDec))
