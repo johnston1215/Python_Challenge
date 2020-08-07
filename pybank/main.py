@@ -15,8 +15,8 @@ with open(filePath) as csvFile:
     PrevMonth = 0.00
     MonthlyChange = []
     monthName = []
-    IncMonth = ()
-    DecMonth = ()
+    IncMonth = []
+    DecMonth = []
     GreatestChange = [monthName, MonthlyChange]
     net_change = 0
 
@@ -33,13 +33,14 @@ with open(filePath) as csvFile:
         monthName += [row[0]]
 
     #Find greatest period increase in profits over period
-        GrtInc = max(MonthlyChange)
-        if GrtInc == GreatestChange[1]:
-            GreatestChange[0] = IncMonth
+    GrtInc = max(MonthlyChange)
+    for row in MonthlyChange:
+        if row == GrtInc:
+            print(GrtInc)       #DUMMY LINE
     #Find greatest decrease in loss over period
-        GrtDec = min(MonthlyChange)
-        if GrtDec == GreatestChange[1]:
-            GreatestChange[0] = DecMonth
+    GrtDec = min(MonthlyChange)
+    if GrtDec == GreatestChange[1]:
+        GreatestChange[0] = DecMonth
 
     #Calculate the average change over periods
     AvgChange = sum(MonthlyChange) / len(MonthlyChange)
@@ -62,3 +63,5 @@ with open(filePath) as csvFile:
     print(f"Average Change: $" + str(AvgChange))
     print(f"Greatest Increase in Profits: " + str(IncMonth) + " $" + str(GrtInc))
     print(f"Greatest Decrease in Profits: " + str(DecMonth) + " $" + str(GrtDec))
+
+    #print(GreatestChange)
