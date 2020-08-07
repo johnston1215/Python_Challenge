@@ -45,7 +45,13 @@ with open(filePath) as csvFile:
     #Write data to text file
         
     with open("Analysis/" + "PyBankAnalysis.txt", "w") as out_file:
-        out_file.write(f"Greatest Decrease in Profits: " + "str(?????)" + " $" + str(GrtDec))
+        out_file.write("Financial Analysis\n")
+        out_file.write("------------------\n")
+        out_file.write(f"Total months: " + str(TotalMonths))
+        out_file.write(f"\nTotal: $" + str(Total))
+        out_file.write(f"\nAverage Change: $" + str(AvgChange))
+        out_file.write(f"\nGreatest Increase in Profits: " + "str(?????)" + " $" + str(GrtInc))
+        out_file.write(f"\nGreatest Decrease in Profits: " + "str(?????)" + " $" + str(GrtDec))
     print("Financial Analysis")
     print("------------------")
     print(f"Total months: " + str(TotalMonths))
