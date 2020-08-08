@@ -9,38 +9,57 @@ filePath = os.path.join("resources/" + "election_data.csv")
 with open(filePath) as csvFile:
     csvReader = csv.reader(csvFile)
 
-    #Create variables - totalVotes int, candidateList = {candidate: votes}
+    #Create variables - totalVotes int, candidates = {candidate: votes}
     totalVotes = 0
-    candidateList = []
-    candidatevotelist = []
+    Khan = 0
+    Correy = 0
+    Li = 0
+    OTooley = 0
+    #candidates = {"Name": ["Khan", "Correy", "Li", "O'Tooley"], "Votes": [0, 0, 0, 0]}
     next(csvReader, None)
 
     #for each row
     for row in csvReader:
         totalVotes = totalVotes + 1
 
-        #Identify a new candidate
-        #if candidateList.index(row[2]) < 0:
-        #    candidateList.append(row[2])
-        #    candidatevotelist.append(1)
-            #else:
-            #    candidatevotelist[candidateList.index(row[2])] += 1
-    #create temp variables
-    
-    #For candidate in the list
+    #Add up votes by candidate
+        if row[2] == "Khan":
+            Khan = Khan + 1
+        elif row[2] == "Correy":
+            Correy = Correy + 1
+        elif row[2] == "Li":
+            Li = Li + 1
+        else:
+            OTooley = OTooley + 1
+        
+    MaxV = max(Khan, Correy, Li, OTooley)
+    if Khan == MaxV:
+        Winner = "Khan"
+    elif Correy == MaxV:
+        Winner = "Correy"
+    elif Li == MaxV:
+        Winner = "Li"
+    else:
+        Winner = "OTooley"
 
-    #   find one with most votes ( accumulator? )
-    #   calc and print percentage
+    #   Calc and print percentage
 
-    #Write data to text file
-    with open("Analysis/" + "PyPollAnalysis.txt", "w") as out_file:
-        out_file.write("Election Results\n")
-        out_file.write("----------------\n")
-        out_file.write(f"Total Votes: " + str(totalVotes))
-        out_file.write("\n----------------")
+    # #Write data to text file
+    # with open("Analysis/" + "PyPollAnalysis.txt", "w") as out_file:
+    #     out_file.write("Election Results\n")
+    #     out_file.write("----------------\n")
+    #     out_file.write(f"Total Votes: " + str(totalVotes))
+    #     out_file.write("\n----------------")
 
-    #print output
+    # #print output
     print("Election Results")
     print("----------------")
     print(f"Total Votes: " + str(totalVotes))
+    print("----------------")
+    print("Khan:" + " %%" + " (" + str(Khan) + ")")
+    print("Correy:" + " %%" + " (" + str(Correy) + ")")
+    print("Li:" + " %%" + " (" + str(Li) + ")")
+    print("O'Tooley:" + " %%" + " (" + str(OTooley) + ")")
+    print("----------------")
+    print("Winner:" + str(Winner))
     print("----------------")
