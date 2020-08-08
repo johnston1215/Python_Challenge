@@ -45,15 +45,22 @@ with open(filePath) as csvFile:
     #   Calc and print percentage
     KhanP = round(Khan / totalVotes * 100,2)
     CorreyP = round(Correy / totalVotes * 100,2)
-    LiP = Li / round(Li / totalVotes * 100,2)
+    LiP = round(Li / totalVotes * 100,2)
     OTooleyP = round(OTooley / totalVotes * 100,2)
 
     # #Write data to text file
-    # with open("Analysis/" + "PyPollAnalysis.txt", "w") as out_file:
-    #     out_file.write("Election Results\n")
-    #     out_file.write("----------------\n")
-    #     out_file.write(f"Total Votes: " + str(totalVotes))
-    #     out_file.write("\n----------------")
+    with open("Analysis/" + "PyPollAnalysis.txt", "w") as out_file:
+        out_file.write("Election Results\n")
+        out_file.write("----------------\n")
+        out_file.write(f"Total Votes: " + str(totalVotes))
+        out_file.write("\n----------------")
+        out_file.write("\nKhan: " + str(KhanP) + "%" + " (" + str(Khan) + ")")
+        out_file.write("\nCorrey: " + str(CorreyP) + "%" + " (" + str(Correy) + ")")
+        out_file.write("\nLi: " + str(LiP) + "%" + " (" + str(Li) + ")")
+        out_file.write("\nO'Tooley: " + str(OTooleyP) + "%" + " (" + str(OTooley) + ")")
+        out_file.write("\n----------------")
+        out_file.write("\nWinner: " + str(Winner))
+        out_file.write("\n----------------")
 
     # #print output
     print("Election Results")
