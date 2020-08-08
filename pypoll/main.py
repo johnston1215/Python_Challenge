@@ -15,6 +15,8 @@ with open(filePath) as csvFile:
     Correy = 0
     Li = 0
     OTooley = 0
+
+    #Skip header
     next(csvReader, None)
 
     #for each row
