@@ -43,6 +43,10 @@ with open(filePath) as csvFile:
         Winner = "OTooley"
 
     #   Calc and print percentage
+    KhanP = round(Khan / totalVotes * 100,2)
+    CorreyP = round(Correy / totalVotes * 100,2)
+    LiP = Li / round(Li / totalVotes * 100,2)
+    OTooleyP = round(OTooley / totalVotes * 100,2)
 
     # #Write data to text file
     # with open("Analysis/" + "PyPollAnalysis.txt", "w") as out_file:
@@ -56,10 +60,10 @@ with open(filePath) as csvFile:
     print("----------------")
     print(f"Total Votes: " + str(totalVotes))
     print("----------------")
-    print("Khan:" + " %%" + " (" + str(Khan) + ")")
-    print("Correy:" + " %%" + " (" + str(Correy) + ")")
-    print("Li:" + " %%" + " (" + str(Li) + ")")
-    print("O'Tooley:" + " %%" + " (" + str(OTooley) + ")")
+    print("Khan: " + str(KhanP) + "%" + " (" + str(Khan) + ")")
+    print("Correy: " + str(CorreyP) + "%" + " (" + str(Correy) + ")")
+    print("Li: " + str(LiP) + "%" + " (" + str(Li) + ")")
+    print("O'Tooley: " + str(OTooleyP) + "%" + " (" + str(OTooley) + ")")
     print("----------------")
-    print("Winner:" + str(Winner))
+    print("Winner: " + str(Winner))
     print("----------------")
