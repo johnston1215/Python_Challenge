@@ -9,13 +9,12 @@ filePath = os.path.join("resources/" + "election_data.csv")
 with open(filePath) as csvFile:
     csvReader = csv.reader(csvFile)
 
-    #Create variables - totalVotes int, candidates = {candidate: votes}
+    #Create variables - totalVotes int, candidates
     totalVotes = 0
     Khan = 0
     Correy = 0
     Li = 0
     OTooley = 0
-    #candidates = {"Name": ["Khan", "Correy", "Li", "O'Tooley"], "Votes": [0, 0, 0, 0]}
     next(csvReader, None)
 
     #for each row
@@ -48,7 +47,7 @@ with open(filePath) as csvFile:
     LiP = round(Li / totalVotes * 100,2)
     OTooleyP = round(OTooley / totalVotes * 100,2)
 
-    # #Write data to text file
+    # Write data to text file
     with open("Analysis/" + "PyPollAnalysis.txt", "w") as out_file:
         out_file.write("Election Results\n")
         out_file.write("----------------\n")
